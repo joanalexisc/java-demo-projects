@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,18 +23,22 @@ import com.castillo.services.agenda.exception.ContactAlreadyExistException;
 import com.castillo.services.agenda.exception.ContactNotFoundException;
 import com.castillo.services.agenda.model.Contact;
 import com.castillo.services.agenda.service.ContactService;
-import com.castillo.services.agenda.validator.ContactRequestValidator;
+import com.castillo.services.agenda.validator.ContactCreationValidator;
+import com.castillo.services.agenda.validator.ContactUpdateValidator;
+
 
 @RestController
+@Validated
 public class AgendaRestController {
 	
 	@Autowired
 	private ContactService contactService;
 	
-	@InitBinder
-	protected void initBinder(WebDataBinder binder) {
-	    binder.setValidator(new ContactRequestValidator());
-	}
+//	@InitBinder
+//	protected void initBinder(WebDataBinder binder) {
+////	    binder.setValidator(new ContactCreationValidator());
+////	    binder.setValidator(new ContactUpdateValidator());
+//	}
 	
 	@RequestMapping(path = "/", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String hello() {
@@ -65,7 +70,7 @@ public class AgendaRestController {
 		}
 		return response;
 	}
-	
+	@Validated(ContactCreationValidator.class)
 	@RequestMapping(path = "/contact/", method = RequestMethod.POST)
 	public ResponseEntity<Void> createContact(@Valid @RequestBody Contact contact, UriComponentsBuilder ucBuilder){
 		ResponseEntity<Void> response = null;
