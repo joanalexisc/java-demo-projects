@@ -1,5 +1,7 @@
 package com.castillo.services.agenda.configuration;
 
+import javax.servlet.Filter;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AgendaInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -18,5 +20,13 @@ public class AgendaInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
+
+	@Override
+	protected Filter[] getServletFilters() {
+		// TODO Auto-generated method stub
+		return super.getServletFilters();
+	}
+	
+	
 
 }

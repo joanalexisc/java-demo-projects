@@ -1,6 +1,6 @@
 package com.castillo.services.agenda.exception;
 
-public class ContactAlreadyExistException extends Exception {
+public class ContactAlreadyExistException extends ServiceException {
 
 	private static final long serialVersionUID = -3661715038693155686L;
 

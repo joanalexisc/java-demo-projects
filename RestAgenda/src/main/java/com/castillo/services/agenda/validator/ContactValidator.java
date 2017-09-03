@@ -7,7 +7,7 @@ import org.springframework.validation.Validator;
 import com.castillo.services.agenda.model.Contact;
 
 
-public class ContactCreationValidator implements Validator {
+public class ContactValidator implements Validator {
 
 	public boolean supports(Class<?> classes) {
 		return Contact.class.equals(classes);

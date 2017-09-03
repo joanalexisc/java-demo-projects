@@ -1,6 +1,6 @@
 package com.castillo.services.agenda.exception;
 
-public class ContactNotFoundException extends Exception {
+public class ContactNotFoundException extends ServiceException {
 
 	
 	private static final long serialVersionUID = 7041738642403092561L;

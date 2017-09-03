@@ -27,9 +27,9 @@ public class ContactServiceImpl implements ContactService {
 		return this.contactDao.getContact(id);
 	}
 
-	public List<Contact> getContact() {
+	public List<Contact> getContacts() {
 		// TODO Auto-generated method stub
-		return this.contactDao.getContact();
+		return this.contactDao.getContacts();
 	}
 
 	public void delete(Long id) throws ContactNotFoundException {

@@ -68,7 +68,7 @@ public class ContactDaoImpl implements ContactDao {
 		
 	}
 
-	public List<Contact> getContact() {
+	public List<Contact> getContacts() {
 		return new ArrayList<Contact>(contacts.values());
 	}
 
@@ -94,7 +94,10 @@ public class ContactDaoImpl implements ContactDao {
 		boolean found = false;
 		for(Entry<String, Contact> entry : contacts.entrySet()) {
 			if(entry.getValue().getId().equals(contact.getId())) {
-				
+				//entry
+				contacts.entrySet().remove(entry);
+				contacts.put(getKey(contact), contact);
+				found = true;
 				break;
 			}
 		}

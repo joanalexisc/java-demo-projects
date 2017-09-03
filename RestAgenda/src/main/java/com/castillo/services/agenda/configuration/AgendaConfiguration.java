@@ -8,5 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.castillo.services")
 public class AgendaConfiguration {
+	public AgendaConfiguration() {
 
+	}
 }
